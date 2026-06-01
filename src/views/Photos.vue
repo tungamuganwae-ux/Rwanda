@@ -9,7 +9,7 @@
       <!-- Volcanoes National Park -->
       <div class="text-center">
         <img
-          src="/src/assets/Bk Arena.jpg"
+          src="/src/assets/bkArena.jpg"
           alt="Bk arena"
           class="w-full h-64 object-cover rounded-lg shadow-lg"
         />
