@@ -54,7 +54,7 @@
       <!-- BK Arena -->
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:scale-105 transition duration-300">
         <img
-          src="/src/assets/BK Arena.jpg"
+          src="/src/assets/bkArena.jpg"
           alt="BK Arena"
           class="w-full h-56 object-cover"
         />
