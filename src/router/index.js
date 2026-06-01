@@ -59,8 +59,8 @@ component: Western
     component:Kigali
   },
   {
-    path:'/vidoes',
-    name:'Vidoes',
+    path:'/videos',
+    name:'Videos',
     component:Videos
   },
   {

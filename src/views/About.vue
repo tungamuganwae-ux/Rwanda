@@ -73,7 +73,7 @@
         <!-- Card 1 -->
         <div class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-3 transition duration-500">
           <img
-            src="https://images.unsplash.com/photo-1511497584788-876760111969"
+            src="/src/assets/Park.jpg"
             class="h-60 w-full object-cover"
           >
 
@@ -91,7 +91,7 @@
         <!-- Card 2 -->
         <div class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-3 transition duration-500">
           <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+            src="/src/assets/sunset.jpg"
             class="h-60 w-full object-cover"
           >
 
@@ -109,7 +109,7 @@
         <!-- Card 3 -->
         <div class="bg-white rounded-3xl overflow-hidden shadow-2xl hover:-translate-y-3 transition duration-500">
           <img
-            src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff"
+            src="/src/assets/bkArena.jpg"
             class="h-60 w-full object-cover"
           >
 

@@ -14,23 +14,23 @@
 
         
         <li>
-          <a href="/" class="hover:text-yellow-300">
+          <RouterLink to="/" class="hover:text-yellow-300">
             {{ t.navbar.home }}
-          </a>
+          </RouterLink>
         </li>
 
        
         <li>
-          <a href="/about" class="hover:text-yellow-300">
+          <RouterLink to="/about" class="hover:text-yellow-300">
             {{ t.navbar.about }}
-          </a>
+          </RouterLink>
         </li>
 
    
         <li>
-          <a href="/services" class="hover:text-yellow-300">
+          <RouterLink to="/services" class="hover:text-yellow-300">
             {{ t.navbar.services }}
-          </a>
+          </RouterLink>
         </li>
 
 
@@ -50,21 +50,21 @@
                    bg-white py-2 w-44 rounded shadow-lg z-50"
           >
             <li>
-              <a
-                href="/videos"
+              <RouterLink
+                to="/videos"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.videos }}
-              </a>
+              </RouterLink>
             </li>
 
             <li>
-              <a
-                href="/photos"
+              <RouterLink
+                to="/photos"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.photos }}
-              </a>
+              </RouterLink>
             </li>
           </ul>
         </li>
@@ -86,57 +86,57 @@
           >
 
             <li>
-              <a
-                href="/western"
+              <RouterLink
+                to="/western"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.westernProvince }}
-              </a>
+              </RouterLink>
             </li>
 
             <li>
-              <a
-                href="/eastern"
+              <RouterLink
+                to="/eastern"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.easternProvince }}
-              </a>
+              </RouterLink>
             </li>
 
             <li>
-              <a
-                href="/northern"
+              <RouterLink
+                to="/northern"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.northernProvince }}
-              </a>
+              </RouterLink>
             </li>
 
             <li>
-              <a
-                href="/southern"
+              <RouterLink
+                to="/southern"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.southernProvince }}
-              </a>
+              </RouterLink>
             </li>
 
             <li>
-              <a
-                href="/kigali"
+              <RouterLink
+                to="/kigali"
                 class="block px-4 py-2 text-black hover:bg-green-800 hover:text-white"
               >
                 {{ t.navbar.kigaliCity }}
-              </a>
+              </RouterLink>
             </li>
 
           </ul>
         </li>
          <!-- Contact -->
         <li>
-          <a href="/contact" class="hover:text-yellow-300">
+          <RouterLink to="/contact" class="hover:text-yellow-300">
             {{ t.navbar.contact }}
-          </a>
+          </RouterLink>
         </li>
 
         <!-- Language Selector -->
@@ -188,10 +188,14 @@
 
 <script>
 import { ref, computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import translations from '../translate'
 
 export default {
   name: 'NavBar',
+  components: {
+    RouterLink
+  },
   setup() {
     const currentLanguage = ref('en')
 
