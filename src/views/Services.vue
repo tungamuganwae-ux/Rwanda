@@ -4,10 +4,10 @@
     <!-- Header -->
     <div class="text-center mb-12">
       <h1 class="text-5xl font-bold text-green-800 mb-4">
-        Our Services
+        {{ t.services.title }}
       </h1>
       <p class="text-xl text-gray-600">
-        Welcome to Tembera U Rwanda
+        {{ t.services.subtitle }}
       </p>
     </div>
 
@@ -56,16 +56,34 @@
     <div class="max-w-4xl mx-auto mt-16">
       <div class="bg-green-700 text-white rounded-2xl p-10 shadow-lg text-center">
         <h2 class="text-3xl font-bold mb-4">
-          📍 Our Location
+          {{ t.services.location }}
         </h2>
         <p class="text-lg">
-          Kigali, Rwanda
+          {{ t.services.locationCity }}
         </p>
         <p class="mt-2 text-green-100">
-          We proudly promote tourism across Rwanda, the Land of a Thousand Hills.
+          {{ t.services.locationDesc }}
         </p>
       </div>
     </div>
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'ServicesView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>

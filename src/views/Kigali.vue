@@ -3,7 +3,7 @@
 
     <!-- Title -->
     <h1 class="text-5xl font-bold text-center mb-10">
-      Welcome to Kigali City
+      {{ t.kigali.title }}
     </h1>
 
     <!-- Hero Image -->
@@ -18,15 +18,11 @@
     <!-- Description -->
     <div class="max-w-4xl mx-auto text-center mb-16">
       <p class="text-lg text-gray-700 leading-8 mb-6">
-        Kigali is the capital city of Rwanda and one of the cleanest and fastest-growing
-        cities in Africa. The city is known for modern buildings, technology,
-        innovation, safety, and beautiful green hills.
+        {{ t.kigali.description }}
       </p>
 
       <p class="text-lg text-gray-700 leading-8">
-        Visitors enjoy exploring Kigali's modern infrastructure, cultural sites,
-        conference centers, and world-class sports facilities such as BK Arena
-        and Amahoro Stadium.
+        {{ t.kigali.description2 }}
       </p>
     </div>
 
@@ -42,11 +38,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Smart Kigali
+            {{ t.kigali.smartKigali }}
           </h2>
           <p class="text-gray-600">
-            Kigali continues to grow as a smart city with modern technology,
-            clean streets, reliable services, and innovative urban development.
+            {{ t.kigali.smartKigaliDesc }}
           </p>
         </div>
       </div>
@@ -60,11 +55,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            BK Arena
+            {{ t.kigali.bkArena }}
           </h2>
           <p class="text-gray-600">
-            BK Arena is one of East Africa's most modern indoor arenas,
-            hosting basketball games, concerts, conferences, and international events.
+            {{ t.kigali.bkArenaDesc }}
           </p>
         </div>
       </div>
@@ -78,11 +72,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Amahoro Stadium
+            {{ t.kigali.amahoroStadium }}
           </h2>
           <p class="text-gray-600">
-            Amahoro Stadium is Rwanda's national stadium and hosts football matches,
-            ceremonies, and major national events.
+            {{ t.kigali.amahoroStadiumDesc }}
           </p>
         </div>
       </div>
@@ -91,3 +84,21 @@
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'KigaliView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>

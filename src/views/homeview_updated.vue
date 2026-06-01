@@ -11,11 +11,11 @@
     <!-- Content -->
     <div class="relative text-center px-6">
       <h1 class="text-5xl md:text-7xl font-bold text-yellow-300 mb-6">
-        {{ t.home.welcomeTitle }}
+        {{ t.contact.welcomeTitle }}
       </h1>
 
       <p class="text-lg md:text-2xl max-w-2xl mx-auto mb-10">
-        {{ t.home.welcomeSubtitle }}
+        {{ t.contact.welcomeSubtitle }}
       </p>
 
       <!-- Cards -->

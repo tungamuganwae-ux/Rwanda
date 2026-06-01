@@ -3,7 +3,7 @@
 
     <!-- Title -->
     <h1 class="text-5xl font-bold text-center mb-10">
-      Welcome to Eastern Province
+      {{ t.eastern.title }}
     </h1>
 
     <!-- Hero Image -->
@@ -18,16 +18,11 @@
     <!-- Description -->
     <div class="max-w-4xl mx-auto text-center mb-16">
       <p class="text-lg text-gray-700 leading-8 mb-6">
-        Eastern Province is home to the famous
-        Akagera National Park, Rwanda's largest national park.
-        The park is known for its beautiful savannah landscapes,
-        lakes, wetlands, and rich wildlife.
+        {{ t.eastern.description }}
       </p>
 
       <p class="text-lg text-gray-700 leading-8">
-        Visitors can enjoy game drives and spot the Big Five:
-        lions, elephants, rhinos, buffaloes, and leopards.
-        Akagera is one of Rwanda's most exciting tourist destinations.
+        {{ t.eastern.wildlifeText }}
       </p>
     </div>
 
@@ -43,10 +38,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Lion
+            {{ t.eastern.lion }}
           </h2>
           <p class="text-gray-600">
-            Lions are among the most famous animals found in Akagera National Park.
+            {{ t.eastern.lionDesc }}
           </p>
         </div>
       </div>
@@ -60,10 +55,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Elephant
+            {{ t.eastern.elephant }}
           </h2>
           <p class="text-gray-600">
-            African elephants can be seen roaming freely across Akagera's plains.
+            {{ t.eastern.elephantDesc }}
           </p>
         </div>
       </div>
@@ -77,10 +72,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Giraffe
+            {{ t.eastern.giraffe }}
           </h2>
           <p class="text-gray-600">
-            Giraffes are easily spotted thanks to their long necks and graceful appearance.
+            {{ t.eastern.giraffeDesc }}
           </p>
         </div>
       </div>
@@ -94,10 +89,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Zebra
+            {{ t.eastern.zebra }}
           </h2>
           <p class="text-gray-600">
-            Zebras add beauty to the savannah with their striking black-and-white stripes.
+            {{ t.eastern.zebraDesc }}
           </p>
         </div>
       </div>
@@ -111,10 +106,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Rhino
+            {{ t.eastern.rhino }}
           </h2>
           <p class="text-gray-600">
-            Rhinos are among the rare and protected animals found in Akagera.
+            {{ t.eastern.rhinoDesc }}
           </p>
         </div>
       </div>
@@ -128,10 +123,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Buffalo
+            {{ t.eastern.buffalo }}
           </h2>
           <p class="text-gray-600">
-            Buffaloes are powerful animals that live in large herds across the park.
+            {{ t.eastern.buffaloDesc }}
           </p>
         </div>
       </div>
@@ -140,3 +135,21 @@
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'EasternView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>

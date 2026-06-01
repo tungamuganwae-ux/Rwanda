@@ -16,14 +16,13 @@
         </h1>
 
         <p class="text-lg md:text-2xl text-gray-200 leading-9">
-          Discover the beauty of Rwanda — the land of a thousand hills,
-          breathtaking landscapes, rich culture, wildlife, and unforgettable adventures.
+          {{ t.about.description }}
         </p>
 
         <button
           class="mt-8 bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-8 py-4 rounded-full shadow-lg transition duration-300"
         >
-          Explore Rwanda
+          {{ t.about.exploreRwanda }}
         </button>
       </div>
     </div>
@@ -43,19 +42,15 @@
       <!-- Text -->
       <div>
         <h2 class="text-5xl font-bold text-green-800 mb-6">
-          Welcome to Rwanda
+          {{ t.about.mainTitle }}
         </h2>
 
         <p class="text-gray-700 text-lg leading-9 mb-6">
-          Rwanda is one of Africa’s most beautiful countries,
-          known for its green hills, clean cities, peaceful environment,
-          and warm hospitality.
+          {{ t.about.mainText }}
         </p>
 
         <p class="text-gray-700 text-lg leading-9">
-          From the stunning Volcanoes National Park to the relaxing shores
-          of Lake Kivu, Rwanda offers unforgettable experiences for tourists,
-          adventurers, and nature lovers.
+          {{ t.about.mainText2 }}
         </p>
       </div>
     </div>
@@ -65,11 +60,11 @@
 
       <div class="text-center mb-16">
         <h2 class="text-5xl font-bold text-yellow-300 mb-4">
-          Explore Rwanda
+          {{ t.about.exploreTitle }}
         </h2>
 
         <p class="text-gray-200 text-lg">
-          Amazing destinations waiting for you
+          {{ t.about.amazingDestinations }}
         </p>
       </div>
 
@@ -84,12 +79,11 @@
 
           <div class="p-6">
             <h3 class="text-3xl font-bold text-green-800 mb-4">
-              Volcanoes
+              {{ t.about.volcanoes }}
             </h3>
 
             <p class="text-gray-600 leading-7">
-              Experience mountain hiking and discover the famous gorillas
-              in Volcanoes National Park.
+              {{ t.about.volcanoesDesc }}
             </p>
           </div>
         </div>
@@ -103,12 +97,11 @@
 
           <div class="p-6">
             <h3 class="text-3xl font-bold text-green-800 mb-4">
-              Lake Kivu
+              {{ t.about.lakeKivu }}
             </h3>
 
             <p class="text-gray-600 leading-7">
-              Relax by the beautiful beaches and enjoy peaceful boat rides
-              on Lake Kivu.
+              {{ t.about.lakeKivuDesc }}
             </p>
           </div>
         </div>
@@ -122,12 +115,11 @@
 
           <div class="p-6">
             <h3 class="text-3xl font-bold text-green-800 mb-4">
-              Kigali City
+              {{ t.about.kigaliCity }}
             </h3>
 
             <p class="text-gray-600 leading-7">
-              Explore one of Africa’s cleanest and safest cities filled
-              with culture, art, and modern beauty.
+              {{ t.about.kigaliCityDesc }}
             </p>
           </div>
         </div>
@@ -137,3 +129,22 @@
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'AboutView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>
+

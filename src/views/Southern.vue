@@ -3,7 +3,7 @@
     
     <!-- Title -->
     <h1 class="text-5xl font-bold text-center mb-10">
-      Welcome to Southern Province
+      {{ t.southern.title }}
     </h1>
 
     <!-- Hero Image -->
@@ -18,17 +18,11 @@
     <!-- Description -->
     <div class="max-w-4xl mx-auto text-center mb-16">
       <p class="text-lg text-gray-700 leading-8 mb-6">
-        Southern Province is home to the famous Nyungwe Forest National Park,
-        one of Africa's oldest rainforests. The forest is rich in biodiversity,
-        featuring hundreds of bird species, primates, orchids, and beautiful
-        hiking trails that attract visitors from around the world.
+        {{ t.southern.description }}
       </p>
 
       <p class="text-lg text-gray-700 leading-8">
-        One of the most exciting attractions in Nyungwe is the Canopy Walkway.
-        Suspended high above the forest floor, this walkway offers breathtaking
-        views of the lush rainforest canopy, allowing visitors to experience
-        nature from a unique perspective while enjoying unforgettable scenery.
+        {{ t.southern.description2 }}
       </p>
     </div>
 
@@ -44,11 +38,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold mb-3 text-green-800">
-            Nyungwe Forest
+            {{ t.southern.nyungweForest }}
           </h2>
           <p class="text-gray-600">
-            Explore one of Africa's oldest rainforests, home to diverse wildlife,
-            waterfalls, and breathtaking hiking trails.
+            {{ t.southern.nyungweForestDesc }}
           </p>
         </div>
       </div>
@@ -62,11 +55,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold mb-3 text-green-800">
-            Canopy Walkway
+            {{ t.southern.canopyWalkway }}
           </h2>
           <p class="text-gray-600">
-            Walk high above the rainforest and enjoy spectacular panoramic views
-            of the treetops and surrounding mountains.
+            {{ t.southern.canopyWalkwayDesc }}
           </p>
         </div>
       </div>
@@ -80,11 +72,10 @@
         />
         <div class="p-5">
           <h2 class="text-2xl font-bold mb-3 text-green-800">
-            Wildlife & Nature
+            {{ t.southern.wildlifeNature }}
           </h2>
           <p class="text-gray-600">
-            Discover chimpanzees, monkeys, colorful birds, and unique plant
-            species living within the rich ecosystem of Nyungwe.
+            {{ t.southern.wildlifeNatureDesc }}
           </p>
         </div>
       </div>
@@ -93,3 +84,21 @@
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'SouthernView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>

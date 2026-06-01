@@ -1,11 +1,11 @@
 <template>
   <section class="bg-white text-green-700 min-h-screen w-full py-12 px-6">
     <h1 class="text-4xl font-bold text-center mb-10">
-      Rwanda Cultural Songs
+      {{ t.videos.title }}
     </h1>
 
     <p class="text-center text-lg mb-10">
-      Enjoy some traditional Rwandan cultural music and dance performances.
+      {{ t.videos.subtitle }}
     </p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -13,7 +13,7 @@
       <!-- Video 1 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Intore Traditional Dance
+          {{ t.videos.intoreDance }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -26,7 +26,7 @@
       <!-- Video 2 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Rwanda Cultural Performance
+          {{ t.videos.rwandaCulturalPerformance }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -39,7 +39,7 @@
       <!-- Video 3 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Traditional Drumming
+          {{ t.videos.traditionalDrumming }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -52,7 +52,7 @@
       <!-- Video 4 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Cultural Wedding Songs
+          {{ t.videos.culturalWeddingSongs }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -65,7 +65,7 @@
       <!-- Video 5 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Intore Warriors Dance
+          {{ t.videos.intoreWarriorsDance }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -78,7 +78,7 @@
       <!-- Video 6 -->
       <div>
         <h2 class="font-bold text-xl mb-3 text-center">
-          Rwanda Heritage Music
+          {{ t.videos.rwandaHeritageMusic }}
         </h2>
         <iframe
           class="w-full h-64 rounded-lg shadow-lg"
@@ -91,3 +91,21 @@
     </div>
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'VideosView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>

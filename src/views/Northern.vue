@@ -4,12 +4,10 @@
     <!-- Heading -->
     <div class="text-center mb-12">
       <h1 class="text-5xl font-bold text-green-800 mb-4">
-        Welcome to Northern Province
+        {{ t.northern.title }}
       </h1>
       <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-        Northern Province is home to Rwanda's famous Mountain Gorillas,
-        breathtaking volcanoes, and the internationally celebrated
-        Kwita Izina ceremony.
+        {{ t.northern.subtitle }}
       </p>
     </div>
 
@@ -25,12 +23,10 @@
         />
         <div class="p-6">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Mountain Gorillas
+            {{ t.northern.mountainGorillas }}
           </h2>
           <p class="text-gray-600">
-            Mountain gorillas are one of Rwanda's greatest treasures.
-            They live in Volcanoes National Park and attract visitors
-            from around the world who come to experience gorilla trekking.
+            {{ t.northern.mountainGorillasDesc }}
           </p>
         </div>
       </div>
@@ -44,12 +40,10 @@
         />
         <div class="p-6">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Volcanoes National Park
+            {{ t.northern.volcanoesNationalPark }}
           </h2>
           <p class="text-gray-600">
-            Located in Musanze District, Volcanoes National Park is known
-            for its stunning volcanic mountains, rich biodiversity, and
-            conservation efforts that protect endangered gorillas.
+            {{ t.northern.volcanoesDesc }}
           </p>
         </div>
       </div>
@@ -63,12 +57,10 @@
         />
         <div class="p-6">
           <h2 class="text-2xl font-bold text-green-800 mb-3">
-            Kwita Izina
+            {{ t.northern.kwitaIzina }}
           </h2>
           <p class="text-gray-600">
-            Kwita Izina is Rwanda's annual gorilla naming ceremony.
-            Newborn gorillas are given names that reflect Rwanda's culture,
-            conservation achievements, and commitment to protecting wildlife.
+            {{ t.northern.kwitaIzinaDesc }}
           </p>
         </div>
       </div>
@@ -78,16 +70,30 @@
     <!-- About Kwita Izina -->
     <div class="max-w-5xl mx-auto mt-16 bg-green-50 p-8 rounded-xl shadow">
       <h2 class="text-3xl font-bold text-green-800 mb-4 text-center">
-        About Kwita Izina
+        {{ t.northern.aboutKwitaIzina }}
       </h2>
       <p class="text-gray-700 leading-8 text-center">
-        Kwita Izina is inspired by the traditional Rwandan practice of naming
-        children after birth. Every year, conservationists, community leaders,
-        tourists, and international guests gather in Musanze to celebrate the
-        birth of baby gorillas. The ceremony highlights Rwanda's success in
-        wildlife conservation and promotes sustainable tourism.
+        {{ t.northern.kwitaIzinaFullDesc }}
       </p>
     </div>
 
   </section>
 </template>
+
+<script>
+import { ref, computed } from 'vue'
+import translations from '../translate'
+
+export default {
+  name: 'NorthernView',
+  setup() {
+    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
+    
+    const t = computed(() => translations[currentLanguage.value])
+
+    return {
+      t
+    }
+  }
+}
+</script>
