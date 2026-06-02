@@ -18,7 +18,11 @@
             {{ t.navbar.home }}
           </RouterLink>
         </li>
-
+                <li>
+          <RouterLink to="/contact" class="hover:text-yellow-300 ">
+            {{ t.navbar.Contact }}
+          </RouterLink>
+        </li>
        
         <li>
           <RouterLink to="/about" class="hover:text-yellow-300">
@@ -32,6 +36,7 @@
             {{ t.navbar.services }}
           </RouterLink>
         </li>
+
 
 
       
@@ -133,11 +138,7 @@
           </ul>
         </li>
          <!-- Contact -->
-        <li>
-          <RouterLink to="/contact" class="hover:text-yellow-300">
-            {{ t.navbar.contact }}
-          </RouterLink>
-        </li>
+
 
         <!-- Language Selector -->
         <li class="relative group">
@@ -187,9 +188,10 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import translations from '../translate'
+import { currentLanguage, setLanguage } from '../languageStore'
 
 export default {
   name: 'NavBar',
@@ -197,20 +199,9 @@ export default {
     RouterLink
   },
   setup() {
-    const currentLanguage = ref('en')
-
     const t = computed(() => translations[currentLanguage.value])
 
-    const changeLanguage = (lang) => {
-      currentLanguage.value = lang
-      localStorage.setItem('selectedLanguage', lang)
-    }
-
-    // Load saved language preference
-    const savedLanguage = localStorage.getItem('selectedLanguage')
-    if (savedLanguage && translations[savedLanguage]) {
-      currentLanguage.value = savedLanguage
-    }
+    const changeLanguage = setLanguage
 
     return {
       t,

@@ -66,14 +66,13 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import translations from '../translate'
+import { currentLanguage } from '../languageStore'
 
 export default {
   name: 'HomeView',
   setup() {
-    const currentLanguage = ref(localStorage.getItem('selectedLanguage') || 'en')
-    
     const t = computed(() => translations[currentLanguage.value])
 
     return {
